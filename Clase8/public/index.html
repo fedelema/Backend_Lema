@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Generico 3 - Clase 8</title>
+</head>
+<body>
+    <form action="/uploadfile" enctype="multipart/form-data" method="POST">
+        <h1>Formulario de subida de archivo</h1>
+        <input type="file" name="file1">
+        <button type="submit" name="upload">Subir archivo</button>
+    </form>
+    <br><hr>
+    <form action="/uploadmultiplefiles" enctype="multipart/form-data" method="POST">
+        <h1>Formulario de subida de archivos multiples</h1>
+        <input type="file" name="multiplefiles1" multiple>
+        <button type="submit" name="uploadfiles">Subir todos los archivos</button>
+    </form>
+</body>
+</html>
