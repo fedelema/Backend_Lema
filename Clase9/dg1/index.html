@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=4, initial-scale=1.0">
+    <title>Desafio generico 1 - Clase 9 - Datos personales</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const templateString = `
+            <h1>Datos personales:</h1>
+            <ul>
+                <li> {{nombre}} </li>
+                <li> {{apellido}} </li>
+                <li> {{edad}} </li>
+                <li> {{telefono}} </li>
+                <li> {{email}} </li>
+            </ul>
+            {{#if comments}}
+                <h2>Comentarios:</h2>
+                <ul>
+                    {{#each comments}}
+                    <li>{{this.user}}: {{this.text}}
+                    {{/each}}
+                </ul>
+            {{/if}}
+        `;
+        const template = Handlebars.compile(templateString);
+        const user = {
+            nombre: 'Fede',
+            apellido: 'Lema',
+            edad: 25,
+            telefono: 1234,
+            email: 'fede@fede.com',
+            comments: [
+                {text: 'Muy bueno crack', user: 'pepito45'},
+                {text: 'Malardo', user: 'fullhater123'}
+            ]
+        }
+        const html = template(user);
+        document.querySelector('#root').innerHTML = html;
+    </script>
+</body>
+</html>
