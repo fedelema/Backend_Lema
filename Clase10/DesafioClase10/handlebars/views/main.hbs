@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form action="/productos/" method="POST">
+                <h2>Ingrese un nuevo producto</h2>
+                <input type="text" name="title" placeholder="Producto" class="input">
+                <input type="number" name="price" placeholder="Precio" class="input">
+                <input type="url" name="thumbnail" placeholder="URL Imagen" class="input">
+                <button type="submit" name="send" class="btn btn-success">ENVIAR</button>
+                <button type="reset" name="delete" class="btn btn-danger">BORRAR</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h2 class="titulo-prod">Productos cargados</h2>
+            {{#each productosCargados}}
+            <div class="prod container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src={{this.thumbnail}} alt={{this.title}}>
+                    </div>
+                    <div class="col-md-6 detalle-prod">
+                        <h2>{{this.title}}</h2>
+                        <h3><b>Precio: $ {{this.price}}</b></h3>
+                        <p>ID Producto: {{this.id}}</p>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

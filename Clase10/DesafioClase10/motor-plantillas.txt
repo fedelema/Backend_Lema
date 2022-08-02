@@ -1,0 +1,14 @@
+HANDLEBARS
+- Facilidad que tiene para incluir código JS en el '.hbs'
+- Misma nomenclatura que HTML, y muy útil para separar partes del mismo con layout y partials
+- Lo unico negativo es que requiere un poco de código extra en el archivo '.js' para crear el motor, pero no es mucho trabajo 
+
+PUG
+- Facilidad que tiene para incluir código JS en el '.pug', más que en los otros
+- La simplificación de nomenclatura del HTML me terminó resultando más complicada para adaptarme, pero creo que a la larga puede ser útil
+
+EJS
+- Se me complico un poco incluir código JS en el '.ejs', y tuve muchos problemas para hacer que funcione el programa
+- Misma nomenclatura que HTML
+
+En resumen, prefiero utilizar HANDLEBARS para el proyecto, ya que tiene la misma nomenclatura que HTML, por lo que va a ser fácil para generar las vistas del front, y me resulto simple incluir código JS en el mismo.
