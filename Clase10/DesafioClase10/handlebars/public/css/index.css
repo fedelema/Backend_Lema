@@ -43,3 +43,12 @@ form button {
 .prod .detalle-prod {
     align-self: center;
 }
+
+.no-prod {
+    background-color: lightcoral;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    align-self: center;
+}

@@ -11,7 +11,8 @@
             </form>
         </div>
         <div class="col-md-6">
-            <h2 class="titulo-prod">Productos cargados</h2>
+            {{#if productosCargados.length}}
+            <h2 class="titulo-prod">Productos cargados - Cantidad: {{productosCargados.length}}</h2>
             {{#each productosCargados}}
             <div class="prod container">
                 <div class="row">
@@ -26,6 +27,11 @@
                 </div>
             </div>
             {{/each}}
+            {{else}}
+            <div class="no-prod">
+                <h2>No hay productos</h2>
+            </div>
+            {{/if}}
         </div>
     </div>
 </div>
