@@ -3,6 +3,7 @@ const express = require('express');
 const ejs = require('ejs');
 const app = express();
 
+//app.set('views', './views')
 app.set('view engine', 'ejs');
 
 app.use(express.json());
@@ -32,7 +33,7 @@ app.get('/productos', (req, res) => {
     productosCargados = JSON.parse(data);
     
     res.render(
-        'pages/index', {productosCargados: productosCargados}
+        'index', {productosCargados: productosCargados}
     );
 });
 
