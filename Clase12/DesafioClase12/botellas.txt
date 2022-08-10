@@ -1,0 +1,26 @@
+[
+  {
+    "title": "FERNET",
+    "price": 1000,
+    "thumbnail": "https://cdn4.iconfinder.com/data/icons/cocktails-11/504/cuba-libre-rum-cocktail-alcoholic-128.png",
+    "id": 1
+  },
+  {
+    "title": "GIN",
+    "price": 1400,
+    "thumbnail": "https://cdn0.iconfinder.com/data/icons/beverage-43/128/gin-tonic-cocktail-cold-beverage-128.png",
+    "id": 2
+  },
+  {
+    "title": "CERVEZA",
+    "price": 250.5,
+    "thumbnail": "https://cdn1.iconfinder.com/data/icons/drink-beverage/512/26-beer-bottle-glass-drink-128.png",
+    "id": 3
+  },
+  {
+    "title": "VODKA",
+    "price": 850,
+    "thumbnail": "https://cdn0.iconfinder.com/data/icons/beverage-43/128/tequila-liquor-margarita-vodka-bar-128.png",
+    "id": 4
+  }
+]
