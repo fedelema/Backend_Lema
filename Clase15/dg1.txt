@@ -1,0 +1,26 @@
+QUERY DEL EJERCICIO: "Gestionando una base de datos"
+
+SHOW DATABASES;
+
+CREATE DATABASE mibase;
+USE mibase;
+
+CREATE TABLE IF NOT EXISTS usuarios(
+	nombre VARCHAR(64) NOT NULL,
+    apellido VARCHAR(64) NOT NULL,
+    edad INT NOT NULL,
+    email VARCHAR(256) NOT NULL,
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT
+);
+
+INSERT INTO usuarios(nombre, apellido, edad, email)
+	VALUES
+		('Juan', 'Perez', 23, 'jp@gmail.com'),
+		('Pedro', 'Mei', 21, 'pm@gmail.com'),
+		('Juana', 'Suarez', 25, 'js@gmail.com');
+    
+SELECT * FROM usuarios;
+
+DELETE FROM usuarios WHERE id = 2;
+
+UPDATE usuarios SET edad = 24 WHERE id = 1;
