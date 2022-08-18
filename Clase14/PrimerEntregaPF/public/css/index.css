@@ -57,3 +57,13 @@ form button {
 .msj {
     margin: 50px;
 }
+
+.botones-card {
+    justify-content: center;
+}
+
+.botones-card button {
+    margin: 5px;
+    padding: 5px;
+    width: 80%;
+}

@@ -22,6 +22,7 @@ class Producto {
         );
         const newId = lastId + 1;
         object.id = newId;
+        object.sku = `${object.id}-${object.nombre}-${object.timestamp}`;
         this.producto.push(object);
         this._saveAll(this.producto)
         return newId;

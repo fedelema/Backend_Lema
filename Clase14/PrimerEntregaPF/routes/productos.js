@@ -5,7 +5,7 @@ const Producto = require('../utils/productos');
 const productos = new Producto('./botellas.txt');
 
 router.get('/:id?', (req, res) => {
-    const id = req.params.id;
+    const id = parseInt(req.params.id);
     if(id) {
         res.send(productos.getById(id));
         return
@@ -26,28 +26,30 @@ router.post('/', (req, res) => {
             foto: body.foto,
             stock: body.stock
         }
+        productos.save(nuevoProd);
     }
-    productos.save(nuevoProd);
+    res.redirect('/')
 });
 
 router.put('/:id', (req, res) => {
-    const id = req.params.id;
+    const id = parseInt(req.params.id);
     const body = req.body;
     if(body.nombre && body.descripcion && body.precio && body.foto && body.stock) {
-        const prod = {
-            nombre: body.nombre,
-            descripcion: body.descripcion,
-            precio: body.precio,
-            foto: body.foto,
-            stock: body.stock
-        }
+        const prod = productos.getById(id);
+        prod.nombre = body.nombre;
+        prod.descripcion = body.descripcion;
+        prod.precio = body.precio;
+        prod.foto = body.foto;
+        prod.stock = body.stock;
+        productos.updateById(id, prod);
     }
-    productos.updateById(id, prod);
+    res.redirect('/')
 });
 
 router.delete('/:id', (req, res) => {
-    const id = req.params.id;
+    const id = parseInt(req.params.id);
     productos.deleteById(id);
+    res.redirect('/')
 });
 
 module.exports = router;

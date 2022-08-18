@@ -1,6 +1,7 @@
             {{#if productos.length}}
-            <h2 class="titulo-prod">Productos cargados - Cantidad: {{productos.length}}</h2>
+            <h2 class="titulo-prod">Tienda virtual de bebidas alcohólicas</h2>
             {{#each productos}}
+            <div class="col-md-4">
             <div class="prod container">
                 <div class="row">
                     <div class="col-md-6">
@@ -8,17 +9,17 @@
                     </div>
                     <div class="col-md-6 detalle-prod">
                         <h2>{{this.nombre}}</h2>
-                        <h3><b>Precio: $ {{this.precio}}</b></h3>
-                        <p>Descripción: {{this.descripcion}}</p>
+                        <h3><b>$ {{this.precio}}</b></h3>
+                        <p>{{this.descripcion}}</p>
                         <p>Stock: {{this.stock}}</p>
-                        <p>ID Producto: {{this.id}}</p>
                     </div>
                 </div>
-                <div class="row">
-                    <button class="btn btn-dark">Agregar al carrito</button>
-                    <button class="btn btn-dark">Actualizar</button>
-                    <button class="btn btn-dark">Eliminar</button>
+                <div class="row botones-card">
+                    <button class="btn btn-dark" id={{this.id}} onclick="agregarAlCarrito({{this.id}})">Agregar al carrito</button>
+                    <button class="btn btn-dark" id={{this.id}}>Actualizar</button>
+                    <button class="btn btn-dark" id={{this.id}}>Eliminar</button>
                 </div>
+            </div>
             </div>
             {{/each}}
             {{else}}
