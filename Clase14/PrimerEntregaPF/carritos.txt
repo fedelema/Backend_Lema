@@ -24,5 +24,15 @@
       }
     ],
     "id": 1
+  },
+  {
+    "timestamp_carrito": 1660857363153,
+    "productos": [],
+    "id": 2
+  },
+  {
+    "timestamp_carrito": 1660857489304,
+    "productos": [],
+    "id": 3
   }
 ]

@@ -4,19 +4,29 @@ const router = Router();
 const Producto = require('../utils/productos');
 const productos = new Producto('./botellas.txt');
 
-router.get('/:id?', (req, res) => {
+const esAdmin = true;
+
+function soloAdmins(req, res, next) {
+    if (!esAdmin) {
+        res.send({error:-1, descripcion:"ruta 'x' método 'y' no autorizada"})
+    } else {
+        next()
+    }
+}
+
+router.get('/:id?', async (req, res) => {
     const id = parseInt(req.params.id);
     if(id) {
-        res.send(productos.getById(id));
+        res.send(await productos.getById(id));
         return
     } else {
-        res.send(productos.getAll());
+        res.send(await productos.getAll());
         return
     }
 });
 
-router.post('/', (req, res) => {
-    const body = req.body;
+router.post('/', soloAdmins, async (req, res) => {
+    const body = await req.body;
     if(body.nombre && body.descripcion && body.precio && body.foto && body.stock) {
         const nuevoProd = {
             timestamp: Date.now(),
@@ -26,14 +36,15 @@ router.post('/', (req, res) => {
             foto: body.foto,
             stock: body.stock
         }
-        productos.save(nuevoProd);
+        let nuevoId = productos.save(nuevoProd);
+
+        res.send('Producto agregado con éxito con id: ' + nuevoId)
     }
-    res.redirect('/')
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', soloAdmins, async (req, res) => {
     const id = parseInt(req.params.id);
-    const body = req.body;
+    const body = await req.body;
     if(body.nombre && body.descripcion && body.precio && body.foto && body.stock) {
         const prod = productos.getById(id);
         prod.nombre = body.nombre;
@@ -43,13 +54,13 @@ router.put('/:id', (req, res) => {
         prod.stock = body.stock;
         productos.updateById(id, prod);
     }
-    res.redirect('/')
+    res.send(`Producto con id:${id} actualizado con éxito`)
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', soloAdmins, (req, res) => {
     const id = parseInt(req.params.id);
     productos.deleteById(id);
-    res.redirect('/')
+    res.send(`Producto con id:${id} eliminado con éxito`)
 });
 
 module.exports = router;
