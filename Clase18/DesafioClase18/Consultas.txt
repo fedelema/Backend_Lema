@@ -1,0 +1,58 @@
+Consultas realizadas:
+
+>CREO BASE DE DATOS
+use ecommerce
+
+>AGREGO 10 PRODUCTOS A LA COLLECCION PRODUCTOS/MENSAJES
+db.productos.insertMany([
+{nombre: 'Papa', precio: 160, foto: 'papa.jpg'}, 
+{nombre: 'Batata', precio: 710, foto: 'batata.jpg'}, 
+{nombre: 'Zapallo', precio: 990, foto: 'zapallo.jpg'}, 
+{nombre: 'Lechuga', precio: 1400, foto: 'lechuga.jpg'}, 
+{nombre: 'Tomate', precio: 1880, foto:'tomate.jpg'}, 
+{nombre: 'Zanahoria', precio: 2320, foto: 'zanahoria.jpg'}, 
+{nombre: 'Espinaca', precio: 2750, foto: 'espinaca.jpg'}, 
+{nombre: 'Cebolla', precio: 3410, foto: 'cebolla.jpg'}, 
+{nombre: 'Morron', precio: 4110, foto: 'morron.jpg'}, 
+{nombre: 'Huevo', precio: 4950, foto: 'huevo.jpg'}
+])
+db.mensajes.insertMany([
+{email: 'a@gmail.com', mensaje: 'hola'}, 
+{email: 'b@gmail.com', mensaje: 'buen dia'}, 
+{email: '1@gmail.com', mensaje: 'buenas'}, 
+{email: 'p@gmail.com', mensaje: 'chau'}, 
+{email: '5@gmail.com', mensaje: 'que tal'}, 
+{email: 're@gmail.com', mensaje: 'hasta luego'}, 
+{email: 'po@gmail.com', mensaje: 'nos vemos'}, 
+{email: 'qw@gmail.com', mensaje: 'hasta mañana'}, 
+{email: 'g@gmail.com', mensaje: 'buen dia'}, 
+{email: '10@gmail.com', mensaje: 'buenas noches'}
+])
+
+>LISTO TODOS LOS DOCUMENTOS DE PRODUCTOS/MENSAJES
+db.productos.find()
+db.mensajes.find()
+
+>CUENTO LOS DOCUMENTOS QUE HAY EN PRODUCTOS/MENSAJES
+db.productos.estimatedDocumentCount()
+db.mensajes.estimatedDocumentCount()
+
+>AGREGO 1 DOCUMENTO MAS A PRODUCTOS
+db.productos.insertOne({nombre: 'Brocoli', precio: 3300, foto: 'brocoli.jpg'})
+
+>LISTO EL NOMBRE DE PRODUCTOS, SEPARANDO POR PRECIO
+db.productos.find({"precio": {$lt: 1000}},{"nombre": 1, "_id": 0})
+db.productos.find({$and:[{"precio": {$gte: 1000}},{"precio": {$lte: 3000}}]},{"nombre": 1, "_id": 0})
+db.productos.find({"precio": {$gt: 3000}},{"nombre": 1, "_id": 0})
+
+>LISTO EL NOMBRE DEL TERCER PRODUCTO MAS BARATO
+db.productos.find({}, {"nombre": 1, "_id": 0}).sort({"precio": 1}).skip(2).limit(1)
+
+>ACTUALIZACION DE TODOS LOS PRODUCTOS, AGREGANDO STOCK=100
+db.productos.updateMany({}, {$set: {"stock": 100}})
+
+>CAMBIO DE STOCK A 0, EN PRODUCTOS CON PRECIO MAYOR A 4000
+db.productos.updateMany({"precio": {$gt: 4000}}, {$set: {"stock": 0}})
+
+>BORRO PRODUCTOS CON PRECIO MENOR A 1000
+db.productos.deleteMany({"precio": {$lt: 1000}})
