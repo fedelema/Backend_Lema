@@ -56,3 +56,7 @@ db.productos.updateMany({"precio": {$gt: 4000}}, {$set: {"stock": 0}})
 
 >BORRO PRODUCTOS CON PRECIO MENOR A 1000
 db.productos.deleteMany({"precio": {$lt: 1000}})
+
+>CREO AL USUARIO PEPE CON PERMISO DE SOLO LECTURA
+use admin
+db.createUser({user: "pepe", pwd: "asd456", roles: [{role: "read", db: "ecommerce"}]})
