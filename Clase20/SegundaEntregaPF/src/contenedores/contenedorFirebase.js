@@ -31,14 +31,19 @@ class ContenedorFirebase {
     }
 
     async getAll() {
+        let array = [];
         const querySnapshot = await this.collection.get();
-        const docs = querySnapshot.docs;
-        const result = docs.map(doc => {
-            doc.data()
-        });
+        // const docs = querySnapshot.docs;
+        // const result = docs.map(doc => {
+        //     doc.data()
+        // });
+        
+        querySnapshot.forEach(doc => 
+            array.push(doc.data()),
+        );
 
-        console.log(result);
-        return result;
+        console.log(array);
+        return array;
     }
 
     async deleteById(id) {

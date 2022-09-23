@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
-const { model } = require('mongoose');
+const { model, Types } = require('mongoose');
 const config = require('../../config');
 
 async function main() {
-    const URIString = config.uriString;
-    await mongoose.connect(URIString);
+    await mongoose.connect(config.mongodb.cnxStr, config.mongodb.options);
 }
 main();
 
@@ -22,6 +21,8 @@ class ContenedorMongoDB {
     }
 
     async getById (id) {
+        //id = Types.ObjectId(id);
+        console.log(id, typeof(id));
         const doc = await this.model.findOne({_id: id});
         
         console.log(doc);
@@ -36,6 +37,7 @@ class ContenedorMongoDB {
     }
 
     async deleteById(id) {
+        id = Types.ObjectId(id);
         const result = await this.model.deleteOne({id: id});
 
         console.log(result);
@@ -47,6 +49,7 @@ class ContenedorMongoDB {
     }
 
     async updateById(id, object) {
+        id = Types.ObjectId(id);
         const doc = await this.model.findOne({_id: id});
         doc = object;
         const result = await doc.save();

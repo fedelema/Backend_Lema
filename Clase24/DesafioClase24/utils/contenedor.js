@@ -1,7 +1,7 @@
 const fs = require("fs");
 const encoding = "utf-8"
 
-class ContenedorArchivo {
+class Contenedor {
     constructor(path) {
         this.filePath = path;
         this.createFileIfNotExists();
@@ -23,20 +23,18 @@ class ContenedorArchivo {
     save(object) {
         const lastId = this.contenedor.reduce(
             (acc, el) => { // Funcion a evaluar para ir comparando el mayor de los ids
-            return el.id > acc ? el.id : acc 
+            return el._id > acc ? el._id : acc 
             }, 
             0 // Acumulador inicial
         );
         const newId = lastId + 1;
-
-        object.id = newId;
+        object._id = newId;
         this.contenedor.push(object);
         this._saveAll(this.contenedor)
         return newId;
     }
 
     getById (id) {
-        id = parseInt(id);
         return this.contenedor.find(c => c.id === id);
     }
 
@@ -45,7 +43,6 @@ class ContenedorArchivo {
     }
 
     deleteById(id) {
-        id = parseInt(id);
         const filtered = this.contenedor.filter(el => el.id !== id);
         this.contenedor = filtered;
         this._saveAll(filtered);
@@ -57,11 +54,10 @@ class ContenedorArchivo {
     }
 
     updateById(id, object) {
-        id = parseInt(id);
         const index = this.contenedor.findIndex(el => el.id === id);
         this.contenedor[index] = object;
         this._saveAll(this.contenedor);
     }
 }
 
-module.exports = ContenedorArchivo
+module.exports = Contenedor // COMMONJS

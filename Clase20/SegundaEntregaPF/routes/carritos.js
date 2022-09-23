@@ -26,21 +26,21 @@ router.post('/', async (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    const id = parseInt(req.params.id);
+    const id = req.params.id;
     carritos.deleteById(id);
     
     res.send(`Carrito con id:${id} eliminado con éxito`)
 });
 
 router.get('/:id/productos', async (req, res) => {
-    const id = parseInt(req.params.id);
+    const id = req.params.id;
     const carritoBuscado = await carritos.getById(id);
     res.send(carritoBuscado.productos);
 });
 
 router.post('/:id/productos/:id_prod', async (req, res) => {
-    const id = parseInt(req.params.id);
-    const id_prod = parseInt(req.params.id_prod);
+    const id = req.params.id;
+    const id_prod = req.params.id_prod;
     const carrito = await carritos.getById(id);
     const prod = await productos.getById(id_prod);
     carrito.productos.push(prod);
@@ -50,8 +50,8 @@ router.post('/:id/productos/:id_prod', async (req, res) => {
 });
 
 router.delete('/:id/productos/:id_prod', (req, res) => {
-    const id = parseInt(req.params.id);
-    const id_prod = parseInt(req.params.id_prod);
+    const id = req.params.id;
+    const id_prod = req.params.id_prod;
     const carrito = carritos.getById(id);
     carrito.productos = carrito.productos.filter(e => e.id != id_prod);
     carritos.updateById(id, carrito);

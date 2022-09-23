@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "authors": {
+      "federicolema@outlook.com": {
+        "id": "federicolema@outlook.com",
+        "nombre": "Federico",
+        "apellido": "Lema",
+        "edad": "25",
+        "alias": "Fede",
+        "avatar": "https://cdn0.iconfinder.com/data/icons/personas-drawn/32/personas-14-512.png",
+        "fecha": "13/9/2022, 18:21:02"
+      },
+      "juana@gmail.com": {
+        "id": "juana@gmail.com",
+        "nombre": "Juana",
+        "apellido": "Perez",
+        "edad": "28",
+        "alias": "Juanita",
+        "avatar": "https://cdn0.iconfinder.com/data/icons/personas-drawn/32/personas-32-512.png",
+        "fecha": "14/9/2022, 10:42:04"
+      },
+      "pepe@gmail.com": {
+        "id": "pepe@gmail.com",
+        "nombre": "Juan",
+        "apellido": "Lopez",
+        "edad": "22",
+        "alias": "Pepe",
+        "avatar": "https://cdn0.iconfinder.com/data/icons/personas-drawn/32/personas-44-512.png",
+        "fecha": "14/9/2022, 10:48:44"
+      },
+      "pelado@gmail.com": {
+        "id": "pelado@gmail.com",
+        "nombre": "Lucas",
+        "apellido": "Rodriguez",
+        "edad": "24",
+        "alias": "Krilin",
+        "avatar": "https://cdn0.iconfinder.com/data/icons/personas-drawn/32/personas-15-512.png",
+        "fecha": "14/9/2022, 10:49:45"
+      },
+      "agustina@gmail.com": {
+        "id": "agustina@gmail.com",
+        "nombre": "Agustina",
+        "apellido": "Casas",
+        "edad": "30",
+        "alias": "Agus",
+        "avatar": "https://cdn0.iconfinder.com/data/icons/personas-drawn/32/personas-24-512.png",
+        "fecha": "14/9/2022, 10:51:04"
+      },
+      "walter@gmail.com": {
+        "id": "walter@gmail.com",
+        "nombre": "Walter",
+        "apellido": "Perez",
+        "edad": "20",
+        "alias": "Wally",
+        "avatar": "https://cdn0.iconfinder.com/data/icons/personas-drawn/32/personas-41-128.png",
+        "fecha": "14/9/2022, 17:12:42"
+      }
+    },
+    "texts": {
+      "1": {
+        "author": "federicolema@outlook.com",
+        "text": "hola",
+        "_id": 1
+      },
+      "2": {
+        "author": "juana@gmail.com",
+        "text": "hola soy juana",
+        "_id": 2
+      },
+      "3": {
+        "author": "pepe@gmail.com",
+        "text": "buenas a todos",
+        "_id": 3
+      },
+      "4": {
+        "author": "pelado@gmail.com",
+        "text": "como andan???",
+        "_id": 4
+      },
+      "5": {
+        "author": "agustina@gmail.com",
+        "text": "todo bien aca!",
+        "_id": 5
+      },
+      "6": {
+        "author": "walter@gmail.com",
+        "text": "buen dia",
+        "_id": 6
+      },
+      "7": {
+        "author": "walter@gmail.com",
+        "text": "buen dia 2",
+        "_id": 7
+      },
+      "8": {
+        "author": "walter@gmail.com",
+        "text": "buen dia 3",
+        "_id": 8
+      },
+      "9": {
+        "author": "walter@gmail.com",
+        "text": "buen dia 4",
+        "_id": 9
+      },
+      "10": {
+        "author": "walter@gmail.com",
+        "text": "buen dia 4",
+        "_id": 10
+      },
+      "11": {
+        "author": "walter@gmail.com",
+        "text": "buen dia 5",
+        "_id": 11
+      },
+      "12": {
+        "author": "walter@gmail.com",
+        "text": "buen dia 6",
+        "_id": 12
+      }
+    }
+  },
+  "result": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ]
+}

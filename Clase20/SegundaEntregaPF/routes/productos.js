@@ -15,7 +15,7 @@ function soloAdmins(req, res, next) {
 }
 
 router.get('/:id?', async (req, res) => {
-    const id = parseInt(req.params.id);
+    const id = req.params.id;
     if(id) {
         res.send(await productos.getById(id));
         return
@@ -43,7 +43,7 @@ router.post('/', soloAdmins, async (req, res) => {
 });
 
 router.put('/:id', soloAdmins, async (req, res) => {
-    const id = parseInt(req.params.id);
+    const id = req.params.id;
     const body = await req.body;
     if(body.nombre && body.descripcion && body.precio && body.foto && body.stock) {
         const prod = productos.getById(id);
@@ -58,7 +58,7 @@ router.put('/:id', soloAdmins, async (req, res) => {
 });
 
 router.delete('/:id', soloAdmins, (req, res) => {
-    const id = parseInt(req.params.id);
+    const id = req.params.id;
     productos.deleteById(id);
     res.send(`Producto con id:${id} eliminado con éxito`)
 });
