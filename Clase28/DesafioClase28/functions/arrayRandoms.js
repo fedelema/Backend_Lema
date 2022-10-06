@@ -3,9 +3,8 @@ function random(min, max) {
 }
 
 function getRandoms(e) {
-    const cant = e || 100000000;
     let array = [];
-    for(i=0; i<cant; i++) {
+    for(i=0; i<e; i++) {
         let numero = random(1, 1000);
         array.push(numero);
     }
@@ -19,7 +18,6 @@ function getRandoms(e) {
 }
 
 process.on('message', (msg) => {
-    console.log(msg);
-    const obj = getRandoms();
+    const obj = getRandoms(parseInt(msg));
     process.send(obj);
 })

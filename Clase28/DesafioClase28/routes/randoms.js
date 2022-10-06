@@ -3,9 +3,9 @@ const router = new Router();
 const { fork } = require('child_process');
 
 router.get("/", (req, res) => {
-    let cant = parseInt(req.query.cant);
+    let cant = req.query.cant || 100000000;
     let child = fork('./functions/arrayRandoms.js');
-    child.send('start');
+    child.send(cant);
     child.on('message', (msg) => {
         res.end(msg);
     })
