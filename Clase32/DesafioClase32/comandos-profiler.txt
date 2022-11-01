@@ -1,0 +1,5 @@
+1) 
+- Iniciar con node --prof server.js
+- Test de carga (sin console log): artillery quick --count 50 -n 20 http://localhost:8080\?info-sin-cl > resultados-sin-cl.txt
+- Test de carga (con console log): artillery quick --count 50 -n 20 http://localhost:8080\?info-con-cl > resultados-con-cl.txt
+- Analisis del log del profiler: node --prof-process log-profiler.log > resumen-profiler.txt
