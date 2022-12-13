@@ -1,0 +1,36 @@
+# query {
+#   getProducto(id:1) {
+#     nombre, descripcion, precio, foto, stock
+#   }
+#  getProductos{id, nombre, precio}
+# }
+ 
+# mutation {
+#   createProducto(datos:{
+#     nombre:"VINO",
+#     descripcion:"Botella de Vino",
+#     precio: 2000,
+#     foto: "https://cdn1.iconfinder.com/data/icons/drink-beverage/512/22-wine-drink-bottle-glass-128.png",
+#     stock: 10
+#   }) {
+#     id, nombre, descripcion, precio, foto, stock
+#   }
+# }
+
+# mutation {
+#   updateProducto(id:5, datos:{
+#     nombre:"VINO",
+#     descripcion:"Botella de Vino",
+#     precio: 2200,
+#     foto: "https://cdn1.iconfinder.com/data/icons/drink-beverage/512/22-wine-drink-bottle-glass-128.png",
+#     stock: 10
+#   }) {
+#     id, nombre, descripcion, precio, foto, stock
+#   }
+# }
+
+# mutation {
+#   deleteProducto(id:5) {
+#     id, nombre, descripcion, precio, foto, stock
+#   }
+# }
