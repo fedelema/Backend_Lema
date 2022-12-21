@@ -1,0 +1,13 @@
+Use en MySQL una database llamada adonis, con la tabla productos:
+
+CREATE DATABASE adonis;
+USE adonis;
+
+INSERT INTO productos(id, nombre, descripcion, precio, stock)
+	VALUES
+		(1, 'FERNET', 'Botella de Fernet Branca', 1700, 10),
+		(2, 'GIN', 'Botella de Gin Bombay', 4700, 10),
+		(3, 'CERVEZA', 'Botella de Cerveza Stella', 500, 10),
+		(4, 'VODKA', 'Botella de Vodka Smirnoff', 1500, 10);
+    
+SELECT * FROM productos;
